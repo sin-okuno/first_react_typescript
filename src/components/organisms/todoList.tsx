@@ -1,6 +1,11 @@
+import { FC } from "react";
 import { TodoType } from "../../types/todo";
 
-export const TodoList = (props: Array<TodoType>) => {
+interface IProps {
+  todoList: Array<TodoType>;
+}
+
+export const TodoList: FC<IProps> = (props) => {
   return (
     <table>
       <thead>
