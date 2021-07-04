@@ -1,15 +1,6 @@
-type TodoType = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-};
+import { TodoType } from "../../types/todo";
 
-interface Iprops {
-  todoList: Array<TodoType>;
-}
-
-export const TodoList = (props: Iprops) => {
+export const TodoList = (props: Array<TodoType>) => {
   return (
     <table>
       <thead>
