@@ -3,15 +3,21 @@ import { useState } from "react";
 import "./styles.css";
 import { TodoList } from "./components/organisms/todoList";
 
+type TodoType = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
 export default function App() {
-  const [fetchDatas, setFetchDatas] = useState<
-    Array<{ userId: number; id: number; title: string; completed: boolean }>
-  >();
+  const [fetchDatas, setFetchDatas] = useState<Array<TodoType>>();
   const onClickFetchData = () => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
-      console.log(res.data);
-      setFetchDatas(res.data);
-    });
+    axios
+      .get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => {
+        setFetchDatas(res.data);
+      });
   };
   return (
     <div className="App">

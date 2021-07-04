@@ -1,10 +1,12 @@
+type TodoType = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
 interface Iprops {
-  todoList: Array<{
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
-  }>;
+  todoList: Array<TodoType>;
 }
 
 export const TodoList = (props: Iprops) => {
@@ -26,7 +28,7 @@ export const TodoList = (props: Iprops) => {
               <td>{todo.id}</td>
               <td>{todo.title}</td>
               <td>
-                <input type="checkbox" checked={todo.completed} />{" "}
+                <input type="checkbox" checked={todo.completed} readOnly />{" "}
               </td>
             </tr>
           );
