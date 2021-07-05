@@ -17,6 +17,7 @@ export const TodoList: FC<IProps> = (props) => {
         </tr>
       </thead>
       <tbody>
+        {/* todoListの後?をつけることで、nullがきても大丈夫 */}
         {props.todoList?.map((todo) => {
           return (
             <tr key={todo.id}>
